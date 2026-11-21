@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thiết lập — Focus Lock</title>
+  <link rel="stylesheet" href="setup.css" />
+</head>
+<body>
+  <div class="page" id="page" data-theme="dark">
+    <header class="topbar">
+      <div class="brandmark">Focus Lock</div>
+      <div class="tagline">Một dự án của Làm Chủ Đồng Hồ Gen Z</div>
+      <div class="page-title">Mục tiêu hôm nay</div>
+    </header>
+
+    <div class="content">
+      <div class="task-list" id="taskList"></div>
+
+      <button class="add-task-btn" id="addTaskBtn">+ Thêm mục tiêu</button>
+    </div>
+
+    <footer class="summary-bar">
+      <div class="summary-item">
+        <span class="summary-label">Đã hoàn thành</span>
+        <strong id="summaryPomos">0 / 0</strong>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Dự kiến xong lúc</span>
+        <strong id="summaryFinish">—</strong>
+      </div>
+      <button class="start-btn" id="startFocusBtn">Bắt đầu tập trung</button>
+    </footer>
+  </div>
+
+  <div class="editor-overlay" id="editorOverlay" hidden>
+    <div class="editor-card">
+      <textarea id="goalInput" class="goal-input" placeholder="Mục tiêu của bạn hôm nay là gì?" rows="2"></textarea>
+      <p class="field-error" id="goalError" hidden>Hãy nhập mục tiêu để lưu</p>
+
+      <div class="pomo-row">
+        <span class="pomo-label">Đã hoàn thành / Dự kiến số phiên Pomodoro để hoàn thành công việc</span>
+        <div class="pomo-inputs">
+          <input type="number" id="actInput" value="0" min="0" />
+          <span class="slash">/</span>
+          <input type="number" id="estInput" value="1" min="1" />
+          <div class="stepper">
+            <button type="button" id="estUpBtn" aria-label="Tăng">▲</button>
+            <button type="button" id="estDownBtn" aria-label="Giảm">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <textarea id="noteInput" class="note-input" placeholder="+ Ghi chú (không bắt buộc)" rows="2"></textarea>
+
+      <div class="editor-footer">
+        <button class="icon-btn" id="deleteTaskBtn" title="Xoá mục tiêu">🗑</button>
+        <div class="footer-actions">
+          <button class="btn ghost" id="cancelEditBtn">Huỷ</button>
+          <button class="btn primary" id="saveTaskBtn">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="setup.js"></script>
+</body>
+</html>

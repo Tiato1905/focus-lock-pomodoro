@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giờ nghỉ — Focus Lock</title>
+  <link rel="stylesheet" href="break.css" />
+</head>
+<body>
+  <div class="stage" id="stage" data-theme="dark">
+    <header class="top">
+      <div class="brand">Focus Lock<div class="tagline">Một dự án của Làm Chủ Đồng Hồ Gen Z</div></div>
+      <div class="top-right">
+        <span class="eyebrow" id="breakEyebrow">Giờ nghỉ</span>
+        <span class="countdown" id="countdown">05:00</span>
+        <button class="reset-btn" id="resetBtn">Đặt lại</button>
+      </div>
+    </header>
+
+    <div class="mode-switch" id="modeSwitch">
+      <button class="mode-btn active" data-mode="game">Trò chơi</button>
+      <button class="mode-btn" data-mode="news">Tin tức</button>
+    </div>
+
+    <div class="columns">
+      <!-- ===== Trò chơi ===== -->
+      <section class="card game-card" id="sectionGame">
+        <div class="tabs" id="gameTabs">
+          <button class="tab-btn active" data-game="snake">Rắn săn mồi</button>
+          <button class="tab-btn" data-game="g2048">2048</button>
+          <button class="tab-btn" data-game="memory">Lật hình</button>
+        </div>
+
+        <div class="game-panel" id="panel-snake">
+          <canvas id="snakeCanvas" width="320" height="320"></canvas>
+          <p class="game-hint">Mũi tên hoặc W A S D để điều khiển — bấm phím bất kỳ để chơi / chơi lại.</p>
+          <p class="game-score">Điểm: <span id="snakeScore">0</span></p>
+        </div>
+
+        <div class="game-panel" id="panel-g2048" hidden>
+          <div class="grid2048" id="grid2048"></div>
+          <p class="game-hint">Dùng phím mũi tên để gộp các ô cùng số, cố gắng đạt tới ô 2048.</p>
+          <p class="game-score">Điểm: <span id="score2048">0</span>
+            <button class="small-btn" id="restart2048">Chơi lại</button>
+          </p>
+        </div>
+
+        <div class="game-panel" id="panel-memory" hidden>
+          <div class="grid-memory" id="gridMemory"></div>
+          <p class="game-hint">Bấm để lật, tìm đủ 8 cặp giống nhau bằng ít lượt nhất.</p>
+          <p class="game-score">Số lượt: <span id="memoryMoves">0</span>
+            <button class="small-btn" id="restartMemory">Chơi lại</button>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== Tin tức ===== -->
+      <section class="card news-card" id="sectionNews" hidden>
+        <div class="news-head">
+          <select class="news-select" id="newsSelect"></select>
+          <button class="small-btn" id="refreshNewsBtn" title="Tải lại tin mới">↻ Làm mới</button>
+        </div>
+
+        <div class="news-list" id="newsList">
+          <p class="news-status">Đang tải tin…</p>
+        </div>
+
+        <button class="small-btn more-btn" id="moreNewsBtn" hidden>Xem thêm tin</button>
+      </section>
+    </div>
+
+    <p class="note">
+      Màn hình này sẽ tự đóng khi hết giờ nghỉ và phiên tập trung tiếp theo bắt đầu.
+      Nếu bạn đóng tab này sớm, nó sẽ tự mở lại — cứ thư giãn, đừng lo về thời gian.
+    </p>
+
+    <div class="mini-player" id="miniPlayer" data-corner="bottom-left">
+      <div class="drag-handle" id="dragHandle" title="Kéo để đổi vị trí">⠿ Kéo để đổi góc</div>
+      <div class="yt-frame-wrap">
+        <iframe id="ytFrame" src="" title="Video giờ nghỉ" frameborder="0" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="mini-body">
+        <div class="mini-title" id="miniTrackName">Chưa có video</div>
+        <div class="mini-sub">Focus Lock</div>
+        <div class="mini-controls">
+          <button id="miniPrevBtn" aria-label="Video trước">⏮</button>
+          <button id="miniPlayBtn" aria-label="Phát / Tạm dừng">⏸</button>
+          <button id="miniNextBtn" aria-label="Video sau">⏭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="break.js"></script>
+</body>
+</html>

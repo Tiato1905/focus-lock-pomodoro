@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Focus Lock</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap" id="wrap" data-phase="idle" data-theme="dark">
+    <div class="topline">
+      <div class="brand">
+        Focus Lock
+        <div class="tagline">Một dự án của Làm Chủ Đồng Hồ Gen Z</div>
+      </div>
+      <button class="gear-btn" id="gearBtn" title="Cài đặt" aria-label="Cài đặt">⚙</button>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel" hidden>
+      <label class="setting-row">
+        <span>Chế độ sáng</span>
+        <span class="switch-wrap">
+          <input type="checkbox" id="themeToggle" />
+          <span class="switch"></span>
+        </span>
+      </label>
+      <label class="setting-row">
+        <span>Test (10 giây / pha)</span>
+        <span class="switch-wrap">
+          <input type="checkbox" id="testToggle" />
+          <span class="switch"></span>
+        </span>
+      </label>
+      <label class="setting-row">
+        <span>4 phiên Pomodoro liên tục<br /><small>25′ tập trung – 5′ nghỉ ×4, lần nghỉ thứ 4 là 15′</small></span>
+        <span class="switch-wrap">
+          <input type="checkbox" id="sequenceToggle" />
+          <span class="switch"></span>
+        </span>
+      </label>
+
+      <div class="settings-divider"></div>
+
+      <label class="setting-row">
+        <span>Chặn web sao nhãng lúc tập trung</span>
+        <span class="switch-wrap">
+          <input type="checkbox" id="blockToggle" />
+          <span class="switch"></span>
+        </span>
+      </label>
+      <button class="disclosure-btn" id="blockListDisclosure" aria-expanded="false">
+        <span>Danh sách trang bị chặn</span>
+        <span class="chevron">▸</span>
+      </button>
+      <div class="disclosure-body" id="blockListBody" hidden>
+        <textarea id="blockListInput" rows="3" placeholder="tiktok.com, instagram.com, facebook.com"></textarea>
+        <p class="duration-hint">Mỗi tên miền cách nhau bằng dấu phẩy hoặc xuống dòng. Chỉ áp dụng lúc đang tập trung.</p>
+      </div>
+
+      <div class="settings-divider"></div>
+
+      <button class="disclosure-btn" id="durationDisclosure" aria-expanded="false">
+        <span>Chỉnh giờ theo sở thích</span>
+        <span class="chevron">▸</span>
+      </button>
+      <div class="disclosure-body" id="durationBody" hidden>
+        <div class="duration-row" id="durationRow">
+          <label class="duration-field">
+            <span>Tập trung (phút)</span>
+            <input type="number" id="focusMinutesInput" min="0.01" step="0.01" value="25" />
+          </label>
+          <label class="duration-field">
+            <span>Nghỉ (phút)</span>
+            <input type="number" id="breakMinutesInput" min="0.01" step="0.01" value="5" />
+          </label>
+        </div>
+        <p class="duration-hint">Từ 1 trở lên = số phút nguyên. Dưới 1 = số giây (VD: 0.10 = 10 giây).</p>
+      </div>
+    </div>
+
+    <p class="eyebrow" id="phaseLabel">Sẵn sàng</p>
+
+    <div class="ring-holder">
+      <svg viewBox="0 0 200 200" class="ring">
+        <circle class="ring-track" cx="100" cy="100" r="88" />
+        <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="88" />
+      </svg>
+      <div class="time" id="timeDisplay">25:00</div>
+    </div>
+
+    <p class="hint" id="hint">Bấm bắt đầu để vào phiên tập trung 25 phút.</p>
+
+    <div class="actions">
+      <button class="btn primary" id="startBtn">Bắt đầu</button>
+      <button class="btn secondary" id="pauseBtn" hidden>Tạm dừng</button>
+      <button class="btn secondary" id="resumeBtn" hidden>Tiếp tục</button>
+      <button class="btn ghost" id="resetBtn">Đặt lại</button>
+    </div>
+
+    <button class="btn setup-link" id="openSetupBtn">Thiết lập mục tiêu</button>
+
+    <p class="cycles" id="cycles"></p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Đang tập trung — Focus Lock</title>
+  <link rel="stylesheet" href="focus.css" />
+</head>
+<body>
+  <div class="stage" id="stage" data-theme="dark">
+    <div class="brand">Focus Lock<div class="tagline">Một dự án của Làm Chủ Đồng Hồ Gen Z</div></div>
+    <p class="eyebrow">Đang tập trung</p>
+
+    <div class="ring-holder">
+      <svg viewBox="0 0 260 260" class="ring">
+        <circle class="ring-track" cx="130" cy="130" r="115" />
+        <circle class="ring-progress" id="ringProgress" cx="130" cy="130" r="115" />
+      </svg>
+      <div class="time" id="timeDisplay">25:00</div>
+    </div>
+
+    <p class="hint" id="hint">Cứ để tab này mở, chuyển sang tab khác làm việc bình thường — hết giờ sẽ tự chuyển sang nghỉ.</p>
+
+    <div class="actions">
+      <button class="btn secondary" id="pauseBtn">Tạm dừng</button>
+      <button class="btn secondary" id="resumeBtn" hidden>Tiếp tục</button>
+      <button class="btn ghost" id="resetBtn">Đặt lại</button>
+    </div>
+
+    <audio id="focusAudio" autoplay></audio>
+
+    <div class="mini-player">
+      <div class="mini-art" id="miniArt">♪</div>
+      <div class="mini-info">
+        <div class="mini-title" id="miniTrackName">Chưa có nhạc</div>
+        <div class="mini-sub">Focus Lock</div>
+      </div>
+      <div class="mini-controls">
+        <button id="miniPrevBtn" aria-label="Bài trước">⏮</button>
+        <button id="miniPlayBtn" aria-label="Phát / Tạm dừng">⏸</button>
+        <button id="miniNextBtn" aria-label="Bài sau">⏭</button>
+      </div>
+    </div>
+  </div>
+  <script src="focus.js"></script>
+</body>
+</html>

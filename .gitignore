@@ -1,0 +1,6 @@
+# Music files are not distributed with the source code
+media/*.mp3
+media/*.m4a
+media/*.wav
+.DS_Store
+*.pem
