@@ -8,7 +8,7 @@ so students can rest without opening social media.
 Built by a high school student at Nguyen Du High School (Ho Chi Minh City) for a
 school science research project (Second Place, 2026).
 
-**Install from the Chrome Web Store:** [ADD YOUR STORE LINK HERE]
+**Install from the Chrome Web Store:** https://chromewebstore.google.com/detail/loakejjcmjolecefekbngklibppblmgk
 
 ## Features
 
